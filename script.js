@@ -1,0 +1,24 @@
+// constantes para manipulacion del DOM
+const textEl = document.getElementById("text");
+const speedEl = document.getElementById("speed");
+const text = "Hola Soy Amdress Cavacal!";
+let idx = 1;
+let speed = 300 / speedEl.value;
+
+writeText(); // auto cargar esta funcion
+
+function writeText() {
+  textEl.innerText = text.slice(0, idx);
+
+  idx++;
+
+  if (idx > text.length) {
+    idx = 1;
+  }
+
+  setTimeout(writeText, speed);
+}
+
+// controlador de velocidad
+
+speedEl.addEventListener("input", (e) => (speed = 300 / e.target.value));
